@@ -46,8 +46,13 @@ class ComputerBuilder	//Abstract builder
 protected:
 	Computer* computer;
 public:
+	ComputerBuilder()
+	{
+		this->computer = new Computer;
+	}
 	virtual ~ComputerBuilder()
 	{
+		delete this->computer;
 	}
 	Computer* getComputer()
 	{
@@ -167,4 +172,10 @@ void main()
 	Assembler sysadmin;
 	sysadmin.assemblyComputer(&cheap_comp);
 	cheap_comp.getComputer()->info();
+
+	sysadmin.assemblyComputer(&office);
+	office.getComputer()->info();
+
+	sysadmin.assemblyComputer(&for_crysis);
+	for_crysis.getComputer()->info();
 }
